@@ -24,7 +24,7 @@ let rec prime_check (num: int) (checker: int) (max: int) : bool =
     num mod checker == 0 || num mod (checker + 4) == 0
     || num mod (checker + 6) == 0 || num mod (checker + 10) == 0
     || num mod (checker + 12) == 0 || num mod (checker + 16) == 0
-    || num mod (checker + 22) == 0 || num mod (checker + 22) == 0
+    || num mod (checker + 22) == 0 || num mod (checker + 24) == 0
   then false
   else prime_check num (checker + 30) max
 

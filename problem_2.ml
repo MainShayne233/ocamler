@@ -5,4 +5,6 @@ let rec solve ?num1:((num1: int) = 1) ?num2:((num2: int) = 2)
     solve ~num1:num2 ~num2:(num1 + num2) ~sum:(sum + num2) ()
   else solve ~num1:num2 ~num2:(num1 + num2) ~sum ()
 
-;; print_int (solve ())
+let result = solve ()
+
+;; print_int result

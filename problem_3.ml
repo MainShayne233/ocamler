@@ -1,3 +1,10 @@
+(*
+ * The prime factors of 13195 are 5, 7, 13 and 29.
+ *
+ * What is the largest prime factor of the number 600851475143?
+ *)
+
+
 let large_number : int = 600851475143
 
 let rec gcd (num1: int) (num2: int) : int =
@@ -7,6 +14,10 @@ let clamped_sqrt (num: int) : int = num |> float_of_int |> sqrt |> truncate
 
 let is_even (num: int) : bool = num mod 2 == 0
 
+(*
+ * Based on Ruby's `prime?` method
+ * https://github.com/ruby/ruby/blob/trunk/lib/prime.rb#L34
+ *)
 let rec prime_check (num: int) (checker: int) (max: int) : bool =
   if checker > max then true
   else if

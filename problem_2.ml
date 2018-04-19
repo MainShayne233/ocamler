@@ -1,10 +1,8 @@
-let rec problem_2 num1 num2 sum =
-  if num2 > 4000000 then
-    print_int sum
+let rec solve ?num1:((num1: int) = 1) ?num2:((num2: int) = 2)
+    ?sum:((sum: int) = 0) () =
+  if num2 > 4000000 then sum
   else if num2 mod 2 == 0 then
-    problem_2 num2 (num1 + num2) (sum + num2)
-  else
-    problem_2 num2 (num1 + num2) sum;;
+    solve ~num1:num2 ~num2:(num1 + num2) ~sum:(sum + num2) ()
+  else solve ~num1:num2 ~num2:(num1 + num2) ~sum ()
 
-problem_2 1 2 0
-
+;; print_int (solve ())

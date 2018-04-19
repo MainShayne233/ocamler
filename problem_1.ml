@@ -1,12 +1,14 @@
-let is_factor_of_3_or_5 number =
-  number mod 3 == 0 || number mod 5 == 0;;
+let is_factor_of_3_or_5 (number: int) : bool =
+  number mod 3 == 0 || number mod 5 == 0
 
-let rec problem_1 = function
-  (1000, sum) -> print_int sum
-  | (index, sum) ->
+let rec solve ?index:((index: int) = 0) ?sum:((sum: int) = 0) () =
+  match index with
+  | 1000 -> sum
+  | less_than_one_thousand ->
       if is_factor_of_3_or_5 index then
-        problem_1 (index + 1, sum + index)
-      else
-        problem_1 (index + 1, sum);;
+        solve ~index:(index + 1) ~sum:(sum + index) ()
+      else solve ~index:(index + 1) ~sum ()
 
-problem_1 (0, 0);;
+let result = solve ()
+
+;; print_int result
